@@ -48,13 +48,17 @@ In the example below I am configuring a static IP address for the `eth0` interfa
 # Home Network Lab Setup
 interface eth0
 static ip_address=192.168.192.12/24
+static routers=192.168.192.1
 
 # I am running DNS on another RPi in my lab
 static domain_name_servers=192.168.192.11
 
-# In my lab the wired network does NOT have a default route
-# but if you need one, set it here
-# static routers=192.168.192.1
+# By default ethernet interfaces are given a metric 
+# 200 + interface index. This would make the eth0 
+# routes preferred over wlan0. But I need wlan0 to
+# be preferred to allow internet access. So I set 
+# the metric for the eth0 interface to 500
+metric 500
 
 # If you want IPv6 address
 # static ip6_address=fd51:42f8:caae:d92e::ff/64
