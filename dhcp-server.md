@@ -1,4 +1,14 @@
 # Using a Raspberry Pi as a DHCP Server
+* [What DHCP Server Software to Use? dnsmasq vs isc-dhcp](#what-dhcp-server-software-to-use--dnsmasq-vs-isc-dhcp)
+* [Installing ISC DHCP Server on Raspberry Pi](#installing-isc-dhcp-server-on-raspberry-pi)
+* [Configuring ISC DHCP Server on Raspberry Pi](#configuring-isc-dhcp-server-on-raspberry-pi)
+* [Getting an IP address from the server](#getting-an-ip-address-from-the-server)
+* [Configuring a Cisco IOS Device as DHCP Client](#configuring-a-cisco-ios-device-as-dhcp-client)
+* [Advanced Configuration: Dynamic DNS Updates from ISC DHCP Server -> Bind](#advanced-configuration--dynamic-dns-updates-from-isc-dhcp-server----bind)
+* [Final Thoughts](#final-thoughts)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 One of the most fundamental parts of any network is the allocation of IP addresses.  DHCP is key to the automatic, scalable allocation of IPs in a network.  DHCP initially shows up on the [CCNA certification](https://learningnetwork.cisco.com/s/ccna-exam-topics) where candidates must understand its role in the network as well as configure client and relay services.  You'll find DHCP on professional and expert level certifications as well.
 
 There are many options for hosting a DHCP server in your network lab, and I have probably tried them all.  Some of them include: 
@@ -10,6 +20,8 @@ There are many options for hosting a DHCP server in your network lab, and I have
 Each of the above have pros and cons, and depending on your needs in the lab at a given time one might make more sense than the others.  I've always been a fan of the last option, running a "real" DHCP server because that is what most closely lines up with with what I need to work with on the job.  However, the cost, overhead, and complexity of setting up a server in the lab is often a challenge.  The fan noise alone can get to you eventually.  
 
 That's where the Raspberry Pi comes in as a great option.  As a low cost computer, RPis are inexpensive to add to a lab.  And because it runs Linux, you can install and use the same DHCP server that you might run across in the office.  
+
+
 
 ## What DHCP Server Software to Use? dnsmasq vs isc-dhcp 
 If you do some searching for "DHCP Server for Raspberry Pi", you'll find lots of documentation, blog posts, and forum discussions.  I know because I did it.  Most of them seem to suggest using [dnsmasq](https://thekelleys.org.uk/dnsmasq/doc.html).  This was a bit of a surprise to me, as I've long used [ISC DHCP](https://www.isc.org/dhcp/) as the DHCP server on Linux systems.  

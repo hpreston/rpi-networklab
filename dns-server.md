@@ -1,4 +1,18 @@
 # Using a Raspberry Pi as a DNS Server
+* [What DNS Server Software to Use? dnsmasq vs Bind](#what-dns-server-software-to-use--dnsmasq-vs-bind)
+* [Installing Bind9 on Raspberry Pi](#installing-bind9-on-raspberry-pi)
+* [Testing DNS Resolution](#testing-dns-resolution)
+* [Configuring the `lab-server` to use itself for DNS lookups](#configuring-the--lab-server--to-use-itself-for-dns-lookups)
+* [Configuring Bind9 on Raspberry Pi](#configuring-bind9-on-raspberry-pi)
+* [Verifying DNS Lookups on Lab Clients](#verifying-dns-lookups-on-lab-clients)
++ [Testing on an RPi `lab-client`](#testing-on-an-rpi--lab-client-)
++ [Testing from a Network Device](#testing-from-a-network-device)
+* [Advanced Configuration: Dynamic DNS Updates from ISC DHCP Server -> Bind](#advanced-configuration--dynamic-dns-updates-from-isc-dhcp-server----bind)
+* [Final Thoughts](#final-thoughts)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 Right up there with DHCP, DNS is a fundamental part of any network.  Few people other than network engineers actually LIKE to remember and refer to servers, applications, etc by their IP address.  Nope... people like to use names.  And that's where DNS comes in. Also like DHCP, DNS shows up on the [CCNA certification](https://learningnetwork.cisco.com/s/ccna-exam-topics) as well as popping up in many other professional, specialist, and expert certifications. 
 
 There are options for hosting a DNS server in your network lab, the most common I've seen include: 
