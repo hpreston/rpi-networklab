@@ -5,7 +5,7 @@ There are many options for hosting a DHCP server in your network lab, and I have
 
 * Many network devices can act as a DHCP server, including Cisco switches and routers
 * Consumer grade all-in-one firewall/router/wireless devices provide DHCP services 
-* Add a server to your lab and run an enteprise DHCP server such as Microsoft DHCP Server or ICS-DHCP on Linux
+* Add a server to your lab and run an enterprise DHCP server such as Microsoft DHCP Server or ICS-DHCP on Linux
 
 Each of the above have pros and cons, and depending on your needs in the lab at a given time one might make more sense than the others.  I've always been a fan of the last option, running a "real" DHCP server because that is what most closely lines up with with what I need to work with on the job.  However, the cost, overhead, and complexity of setting up a server in the lab is often a challenge.  The fan noise alone can get to you eventually.  
 
@@ -353,6 +353,11 @@ This is a networking lab discussion, let's configure an interface on a network d
     Feb 26 16:00:06 lab-server dhcpd[828]: DHCPREQUEST for 192.168.192.101 (192.168.192.11) from a0:ec:f9:ab:39:d3 (lab-switch) via eth0
     Feb 26 16:00:06 lab-server dhcpd[828]: DHCPACK on 192.168.192.101 to a0:ec:f9:ab:39:d3 (lab-switch) via eth0
     ```
+
+## Advanced Configuration: Dynamic DNS Updates from ISC DHCP Server -> Bind 
+If you are truly going to get the benefits of DHCP and DNS in your lab, you'll likely want DNS to work for clients who receive IP addresses via DHCP as well.  
+
+Checkout the [Dynamic DNS - dhcpd to bind](dynamic-dns.md) guide for details on that setup.
 
 ## Final Thoughts 
 Now we have a full featured DHCP server running in our lab.  This doc just scratched the surface of DHCP configuration and exploration you might do.  From here somethings you can explore include: 
