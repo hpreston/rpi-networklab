@@ -1,4 +1,14 @@
 # Dynamic DNS - Maintaining accurate A and PTR records for DHCP leases
+* [Creating a secure key for authenticating updates](#creating-a-secure-key-for-authenticating-updates)
+* [Updating the ISC DHCP Server Configuration](#updating-the-isc-dhcp-server-configuration)
+* [Updating the Bind Configuration](#updating-the-bind-configuration)
+* [Applying changes](#applying-changes)
+* [Monitoring for Dynamic DNS Updates](#monitoring-for-dynamic-dns-updates)
+* [Final Thoughts](#final-thoughts)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 In [Using a Raspberry Pi as a DHCP Server](dhcp-server.md) we learned how to setup the ISC DHCP Server on the RPi to issue IP addresses dynamically.  And in [Using a Raspberry Pi as a DNS Server](dns-server.md) we learned how to setup Bind9 on RPi to provide DNS resolution.  But what about DNS resolution for dynamically assigned addresses?  This is where Dynamic DNS, sometimes called DDNS, comes in.  
 
 What needs to happen is that the DHCP server must send updates to the DNS server for each lease that is issued, and again when they expire.  In this document we'll look at how we can update the configurations for both ISC DHCP Server and Bind9 to allow DDNS. 
