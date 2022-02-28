@@ -1,0 +1,14 @@
+[Unit]
+Description=TACACS+ daemon instance tacacs
+Documentation=man:tac_plus(8) man:tac_plus.conf(5)
+After=network.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/local/sbin/tac_plus -P -C /etc/tacacs/tac_plus.config
+ExecStart=/usr/local/sbin/tac_plus -G -C /etc/tacacs/tac_plus.config  -d 8 -d 16 -l /var/log/tac_plus.log
+ExecReload=/bin/sh -c "/usr/local/sbin/tac_plus -P -C /etc/tacacs/tac_plus.config >/dev/null 2>&1" && /bin/kill -HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
